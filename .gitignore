@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+spacex-front/node_modules
+spacex-front/.pnp
+spacex-front/.pnp.js
+
+# testing
+spacex-front/coverage
+
+# production
+spacex-front/build
+
+# misc
+spacex-front/.DS_Store
+spacex-front/.env.local
+spacex-front/.env.development.local
+spacex-front/.env.test.local
+spacex-front/.env.production.local
+
+spacex-front/npm-debug.log*
+spacex-front/yarn-debug.log*
+spacex-front/yarn-error.log*
