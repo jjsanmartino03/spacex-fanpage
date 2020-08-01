@@ -1,0 +1,8 @@
+.navbar-light .navbar-nav .nav-link.active{
+    border-bottom:green solid 2px;
+}
+.navbar-light .navbar-nav .nav-link{
+    border-bottom: transparent solid 2px;
+    padding-bottom:0;
+    margin-bottom: .4rem;
+}
