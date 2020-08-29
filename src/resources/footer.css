@@ -1,0 +1,28 @@
+.site-footer{
+  background-color: #457b9d!important;
+  color: aliceblue;
+}
+.bottom-footer{
+  background-color:#30607e ;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+.site-footer a{
+  color:black;
+}
+.profile-icons{
+  display: flex;
+  gap: 20px;
+}
+.profile-icons  svg{
+  width: 45px;
+  height: auto;
+  transition-duration: 0.3s;
+}
+.profile-icons svg:hover{
+  transform: scale(1.2);
+}

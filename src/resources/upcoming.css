@@ -1,0 +1,90 @@
+.upcoming-view{
+  font-size: 1.3em!important;
+}
+
+.upcoming-header {
+  padding-bottom: 10rem!important;
+  padding-top: 7rem!important;
+  background-image: url("./spacex-hor.jpg");
+  color: white!important;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1)!important;
+  color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  transition-duration: 0s;
+  display: flex;
+  flex-direction: column;
+  animation-name: change-wall ;
+}
+.highlight{
+  font-size: 1.05em;
+  color: #f77f00;
+}
+.navbar {
+  background: #f4f1de!important
+}
+
+
+
+.upcoming-container {
+  margin-top: -50px!important;
+  z-index: 3;
+}
+
+.card {
+  border-radius: 8px!important;
+  background: #50514f!important;
+  color: wheat!important;
+}
+.card h2{
+  color: white!important;
+}
+.card-footer{
+  color: #b2dbbf;
+}
+
+.timer-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timers{
+  display:flex;
+  justify-content: space-around;
+  width: 75%;
+}
+.timers > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size:1.2rem;
+}
+.timer-number{
+  font-size: 3rem;
+}
+
+@media (max-width:1000px) {
+  .upcoming-header {
+    transform: none!important;
+    padding-top: 5rem!important;
+  }
+  .upcoming-container {
+    margin-top: -100px!important;
+  }
+  .timers{
+    width: 90%;
+  }
+}
+
+@media (min-width:576px){
+  .card-columns {
+    column-count: 2!important;
+  }
+}
+@media (min-width:1000px){
+  .card-columns{
+    column-count: 3!important;  
+  }
+}

@@ -1,0 +1,32 @@
+@import "./navbar.css";
+@import "./upcoming.css";
+@import "./footer.css";
+
+:root{
+  --color-navbar: #f4f1de;
+  --color-2: #e07a5f;
+  --color-3: #3d405b;
+  --color-4: #81b29a;
+  --color-5: #f2cc8f;
+}
+
+
+html{
+  scroll-behavior: smooth;
+}
+body{
+  min-height: 100vh;
+  font-family: "Dosis", sans-serif;
+  background: linear-gradient(180deg, #b2dbbf, #f4f1de 40% );
+  
+}
+
+.text-white{
+  color: #ffffff;
+}
+.text-black{
+  color:#000000;
+}
+h1{
+  font-size: 3.5em;
+}
