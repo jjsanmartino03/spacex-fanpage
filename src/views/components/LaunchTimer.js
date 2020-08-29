@@ -51,7 +51,7 @@ class LaunchTimer extends React.Component {
 const mapStateToProps = ({upcomingView}) => {
   let nextLaunch = upcomingView.upcomingLaunches[0];
   return ({
-  nextDate : nextLaunch.dateUtc,
+  nextDate : nextLaunch.date,
   nextLaunchName : nextLaunch.name,
 })}
 
