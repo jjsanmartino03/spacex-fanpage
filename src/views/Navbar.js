@@ -9,9 +9,7 @@ class MyNavbar extends React.Component {
     super(props);
     this.state = {shadow:false}
     this.links = [
-        { path: "/home", text: "Home" },
         { path: "/upcoming", text: "Upcoming Launches" },
-        { path: "/about", text: "About" }
       ];
   }
   componentDidMount = () => {
