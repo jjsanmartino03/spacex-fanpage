@@ -17,15 +17,17 @@ class Upcoming extends React.Component {
   }
   componentDidMount = () => {
     this.props.dispatch(changeActiveAnchor("/upcoming"));
-    this.props.dispatch(fetchUpcomingFromApi());
+    this.updateLaunches();
     window.addEventListener("scroll", this.handleScroll);
     
-    this.updateUpcomingInterval = setInterval(() => {
-      this.props.dispatch(fetchUpcomingFromApi());
-    }, 60000*5);
+    this.updateUpcomingInterval = setInterval(this.updateLaunches, 60000*5);
+  }
+  updateLaunches = () => {
+    this.props.dispatch(fetchUpcomingFromApi());
   }
   componentWillUnmount = () => {
     this.props.dispatch(deleteCollection());
+    clearInterval(this.updateUpcomingInterval);
     window.removeEventListener("scroll", this.handleScroll);
     this.props.dispatch(changeActiveAnchor("/"));
   }
