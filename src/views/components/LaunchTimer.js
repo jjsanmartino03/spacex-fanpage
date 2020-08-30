@@ -11,16 +11,24 @@ class LaunchTimer extends React.Component {
   }
   componentDidMount = () => {
     this.timeInterval = setInterval(
-      this.updateTimer, 1000
+      this.substractASecond, 1000
+    );
+    this.updateTimeInterval = setInterval(
+      this.updateTimeInterval, 60000
     );
   }
-  updateTimer = () => {
+  updateTimeInterval = () => {
+    let distance = Math.floor((this.props.nextDate - new Date()) / 1000);
+    this.setState({distance});
+  }
+  substractASecond = () => {
     this.setState(({distance}) => {
       return {distance: distance -1 }
     })
   }
   componentWillUnmount = () =>{
     clearInterval(this.timeInterval);
+    clearInterval(this.updateTimeInterval);
   }
   render() {
     const second = 1, minute = second*60, hour=minute*60, day = hour*24;
