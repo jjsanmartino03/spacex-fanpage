@@ -22,17 +22,17 @@ const formatDateBasedOnPrecision = (date, precision) => {
     case "hour":
       return returnFunction({ ...commonOptions, weekday: "short" });
     case "day":
-      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined });
+      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, timeZone: "UTC" });
     case "month":
-      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, day: undefined });
+      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, day: undefined, timeZone: "UTC",  });
     case "year":
-      return returnFunction({ year: "numeric" });
+      return returnFunction({ year: "numeric", timeZone: "UTC", });
     case "quarter":
-      let quarter = Math.floor((date.getMonth() + 1) / 3);
-      let year = date.getFullYear();
+      let quarter = Math.floor((date.getUTCMonth() + 1) / 3);
+      let year = date.getUTCFullYear();
       return `Quarter ${quarter} ${year}`;
     case "half":
-      return ((date.getMonth() + 1) / 6 > 1 ? "1st Half " : "2nd Half ") + date.getFullYear;
+      return ((date.getUTCMonth() + 1) / 6 > 1 ? "1st Half " : "2nd Half ") + date.getUTCFullYear();
   }
 
 }
