@@ -14,8 +14,7 @@ const upcomingReducer = function (state = initialStore.upcomingView, action) {
   switch (action.type) {
     case actionNames.addUpcomingLaunches:
       return {...state, 
-        upcomingLaunches : [
-          ...state.upcomingLaunches, ...action.upcomingLaunches
+        upcomingLaunches : [ ...action.upcomingLaunches
         ]
       };
     case actionNames.deleteCollection:
