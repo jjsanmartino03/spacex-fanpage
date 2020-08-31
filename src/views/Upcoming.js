@@ -20,7 +20,7 @@ class Upcoming extends React.Component {
     this.updateLaunches();
     window.addEventListener("scroll", this.handleScroll);
     
-    this.updateUpcomingInterval = setInterval(this.updateLaunches, 60000*5);
+    this.updateUpcomingInterval = setInterval(this.updateLaunches, 60000);
   }
   updateLaunches = () => {
     this.props.dispatch(fetchUpcomingFromApi());
