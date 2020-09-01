@@ -23,8 +23,8 @@ class Footer extends React.Component {
         <div className=" bottom-footer mt-3 py-3">
           <p className="mb-2" >Project developed by Julián Sanmartino</p>
           <div className="profile-icons">
-          <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/julisanmartino"><GithubLogo /></a>
-            <a  rel="noopener noreferrer"target="_blank" href="https://github.com/jjsanmartino03" ><TwitterLogo /></a>
+          <a rel="noopener noreferrer" target="_blank" href="https://github.com/jjsanmartino03"><GithubLogo /></a>
+            <a  rel="noopener noreferrer"target="_blank" href="https://twitter.com/julisanmartino" ><TwitterLogo /></a>
             <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/juli%C3%A1n-jorge-sanmartino-85b88118a/" ><LinkeInLogo/></a>
           </div>
         </div>
