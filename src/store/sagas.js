@@ -24,7 +24,7 @@ const formatDateBasedOnPrecision = (date, precision) => {
     case "day":
       return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, timeZone: "UTC" });
     case "month":
-      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, day: undefined, timeZone: "UTC",  });
+      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, day: undefined, timeZone: "UTC",  }).replace(", UTC", "");
     case "year":
       return returnFunction({ year: "numeric", timeZone: "UTC", });
     case "quarter":
@@ -33,6 +33,8 @@ const formatDateBasedOnPrecision = (date, precision) => {
       return `Quarter ${quarter} ${year}`;
     case "half":
       return ((date.getUTCMonth() + 1) / 6 > 1 ? "1st Half " : "2nd Half ") + date.getUTCFullYear();
+    default:
+      return date.toString();
   }
 
 }
@@ -55,6 +57,11 @@ function* fetchUpcomingSaga(action) {
 async function fetchUpcomingLaunches() {
   let response = (await axios.get("https://api.spacexdata.com/v4/launches/upcoming")).data;
 
+  response = response.filter(value => {
+    if (new Date(value.date_utc) < new Date() && value.date_precision === "hour") return false;
+    else return true;
+  })
+
   let launchObjects = response.map((value,) => {
     let launchDate = new Date(value.date_utc)
     return new Launch([
@@ -62,7 +69,8 @@ async function fetchUpcomingLaunches() {
       value.details,
       value.id,
       launchDate,
-      formatDateBasedOnPrecision(launchDate, value.date_precision)
+      formatDateBasedOnPrecision(launchDate, value.date_precision),
+      value.date_precision,
     ])
   }
   );

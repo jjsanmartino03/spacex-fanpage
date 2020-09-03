@@ -1,10 +1,15 @@
 .upcoming-view{
   font-size: 1.3em!important;
 }
-
-.upcoming-header {
+.pb-big{
+  padding-bottom: 7rem!important;
+}
+.pb-bigger{
   padding-bottom: 10rem!important;
-  padding-top: 7rem!important;
+}
+.upcoming-header {
+  
+  padding-top: 7rem;
   background-image: url("./spacex-hor.jpg");
   color: white!important;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 1)!important;
@@ -62,6 +67,10 @@
   font-size:1.2rem;
 }
 .timer-number{
+  font-size: 3rem;
+}
+
+.string-date-container h2{
   font-size: 3rem;
 }
 

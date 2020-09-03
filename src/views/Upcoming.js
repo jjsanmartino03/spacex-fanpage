@@ -37,10 +37,11 @@ class Upcoming extends React.Component {
   }
   render = () => {
     const upcomingLaunches = this.props.upcomingLaunches;
+    const paddingBottom = (upcomingLaunches.length > 1 && upcomingLaunches[0].datePrecision === "hour") ? " pb-bigger": " pb-big";
     const transformY = this.state.transformY;
     return (
       <div className="upcoming-view">
-        <Container className="upcoming-header"
+        <Container className={"upcoming-header" + paddingBottom }
           style={{
             transform : `translate3d(0px, ${transformY}px, 0px)`,
           }}

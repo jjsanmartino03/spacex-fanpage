@@ -3,7 +3,6 @@ import { Card } from "react-bootstrap";
 
 
 function LaunchItem(props) {
-  let datePrecision = props.launch.datePrecision;
   return (
     <Card bg="light" className="shadow-big border-secondary" text="dark" >
       <Card.Body>
