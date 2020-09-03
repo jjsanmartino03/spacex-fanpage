@@ -1,6 +1,7 @@
 .upcoming-view{
   font-size: 1.3em!important;
 }
+
 .pb-big{
   padding-bottom: 7rem!important;
 }
@@ -78,6 +79,7 @@
   .upcoming-header {
     transform: none!important;
     padding-top: 5rem!important;
+    padding-bottom: 10rem!important;
   }
   .upcoming-container {
     margin-top: -100px!important;

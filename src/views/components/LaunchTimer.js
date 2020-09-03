@@ -44,7 +44,7 @@ class LaunchTimer extends React.Component {
 
 
     return (
-      <div className="text-center timer-container">
+      <div className="text-center pt-4 timer-container">
         <h3 className="text-center launch-timer-title mt-4">The next launch, "<span className="highlight">{launchName}</span>" takes off in:</h3>
         <div className="timers">
           {
