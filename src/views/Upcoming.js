@@ -37,7 +37,7 @@ class Upcoming extends React.Component {
   }
   render = () => {
     const upcomingLaunches = this.props.upcomingLaunches;
-    const paddingBottom = (upcomingLaunches.length > 1 && upcomingLaunches[0].datePrecision === "hour") ? " pb-bigger": " pb-big";
+    const paddingBottom = (upcomingLaunches.length > 1 && upcomingLaunches[0].datePresicion === "hour") ? " pb-bigger": " pb-big";
     const transformY = this.state.transformY;
     return (
       <div className="upcoming-view">

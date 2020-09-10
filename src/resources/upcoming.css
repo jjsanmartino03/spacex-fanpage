@@ -61,7 +61,7 @@
   justify-content: space-around;
   width: 75%;
 }
-.timers > div{
+.string-date-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,6 +69,7 @@
 }
 .timer-number{
   font-size: 3rem;
+  display: block;
 }
 
 .string-date-container h2{
