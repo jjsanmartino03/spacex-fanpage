@@ -11,11 +11,17 @@ function App(props) {
   return (
     <Provider store={store}>
       <Router>
-        <Route path="" component={Navbar} />
-        <Route path="/upcoming" exact component={Upcoming} />
-        <Route path="" component={Footer} />
+        <Route path="">
+          <Navbar />
+        </Route>
+        <Route path="/upcoming" exact>
+          <Upcoming />
+        </Route>
+        <Route path="">
+          <Footer />
+        </Route>
       </Router>
     </Provider>
-  )
-}
+  );
+};
 export default App;
