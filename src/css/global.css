@@ -18,6 +18,10 @@ body{
 .text-black{
   color:#000000;
 }
+.highlight{
+  font-size: 1.05em;
+  color: #f77f00;
+}
 h1{
   font-size: 3.5em;
 }
