@@ -24,7 +24,7 @@ const formatDateBasedOnPrecision = (date, precision) => {
     case "day":
       return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, timeZone: "UTC" });
     case "month":
-      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, day: undefined, timeZone: "UTC",  }).replace(", UTC", "");
+      return returnFunction({ ...commonOptions, hour: undefined, minute: undefined, day: undefined, timeZone: "UTC", }).replace(", UTC", "");
     case "year":
       return returnFunction({ year: "numeric", timeZone: "UTC", });
     case "quarter":
@@ -62,19 +62,22 @@ async function fetchUpcomingLaunches() {
     else return true;
   })
 
-  let launchObjects = response.map((value,) => {
+  let launchObjects = response.map(value => {
+
     let launchDate = new Date(value.date_utc)
-    return new Launch([
-      value.name,
-      value.details,
-      value.id,
+    let { name, details, id, date_precision } = value;
+
+    return new Launch({
+      name,
+      details,
+      id,
       launchDate,
-      formatDateBasedOnPrecision(launchDate, value.date_precision),
-      value.date_precision,
-    ])
-  }
+      stringDate : formatDateBasedOnPrecision(launchDate, value.date_precision),
+      date_precision,
+    })
+}
   );
-  return launchObjects;
+return launchObjects;
 }
 
 export default mainSaga;
