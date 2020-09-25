@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import Navbar from "./views/Navbar";
 import Upcoming from "./views/Upcoming";
-import { Provider } from "react-redux";
 import Footer from "./views/Footer";
-
 import store from "./store/index";
 
-function AppRouter(props) {
+function App(props) {
   return (
     <Provider store={store}>
       <Router>
@@ -18,4 +18,4 @@ function AppRouter(props) {
     </Provider>
   )
 }
-export default AppRouter;
+export default App;
