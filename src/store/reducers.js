@@ -6,7 +6,7 @@ const initialStore = {
     upcomingLaunches: [],
   },
   navbarView : {
-    currentLocation : "",
+    currentLocation : "", // Done to highlight current location in navbar
   }
 };
 

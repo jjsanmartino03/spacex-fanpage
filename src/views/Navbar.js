@@ -65,7 +65,7 @@ class MyNavbar extends React.Component { // Navigation bar present in every view
 }
 
 const mapStateToProps = ({navbarView}) =>{
-    return {...navbarView};
+    return {...navbarView}; // Necessary info to highlight current location
 }
 
 export default connect(mapStateToProps)(MyNavbar);
