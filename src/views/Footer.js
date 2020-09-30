@@ -25,7 +25,7 @@ class Footer extends React.Component {
           <div className="profile-icons">
           <a rel="noopener noreferrer" target="_blank" href="https://github.com/jjsanmartino03"><GithubLogo /></a>
             <a  rel="noopener noreferrer"target="_blank" href="https://twitter.com/julisanmartino" ><TwitterLogo /></a>
-            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/juli%C3%A1n-jorge-sanmartino-85b88118a/" ><LinkedInLogo/></a>
+            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/julian-sanmartino/" ><LinkedInLogo/></a>
           </div>
         </div>
       </footer>
