@@ -39,10 +39,10 @@ class Upcoming extends React.Component {
     const upcomingLaunches = this.props.upcomingLaunches;
 
     if (upcomingLaunches[0]) {
-      this.updateUpcomingInterval = setInterval(this.updateLaunches, upcomingLaunches[0].date - new Date()); // This is done to update the countdown when it reaches 0
+      console.log(setTimeout(()=> console.log("hols"), upcomingLaunches[0].date - new Date())); // This is done to update the countdown when it reaches 0
     }
 
-
+    console.log("rendering");
     console.log(upcomingLaunches[0])
     const paddingBottom = (upcomingLaunches.length > 1 && upcomingLaunches[0].datePrecision === "hour") ? " pb-bigger" : " pb-big";
     const transformHeaderY = this.state.transformHeaderY;

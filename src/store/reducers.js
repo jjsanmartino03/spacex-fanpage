@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { actionNames } from "./actions";
-
+import Launch from "../entities/Launch";
 const initialStore = {
   upcomingView: {
     upcomingLaunches: [],
@@ -13,8 +13,16 @@ const initialStore = {
 const upcomingReducer = function (state = initialStore.upcomingView, action) {
   switch (action.type) {
     case actionNames.addUpcomingLaunches:
+      const testLaunch = new Launch({
+          name: "Test Launch III",
+          details: null,
+          id : "ee4fdc88y2c",
+          launchDate: new Date("Fri Oct 02 2020 17:22:59 GMT-0300 (Argentina Standard Time)"),
+          stringDate: "aug 2020",
+          date_precision: "hour",
+      })
       return {...state, 
-        upcomingLaunches : [ ...action.upcomingLaunches
+        upcomingLaunches : [ testLaunch,...action.upcomingLaunches
         ]
       };
     case actionNames.deleteCollection:
