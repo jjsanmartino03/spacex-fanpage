@@ -2,17 +2,8 @@
 @import "./upcoming.css";
 @import "./footer.css";
 
-:root{
-  --color-navbar: #f4f1de;
-  --color-2: #e07a5f;
-  --color-3: #3d405b;
-  --color-4: #81b29a;
-  --color-5: #f2cc8f;
-}
-
-
 html{
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* I do not know whether this works, but I use it */
 }
 body{
   min-height: 100vh;
@@ -27,6 +18,14 @@ body{
 .text-black{
   color:#000000;
 }
+.highlight{
+  font-size: 1.05em;
+  color: #f77f00;
+}
 h1{
   font-size: 3.5em;
+}
+
+.shadow-big{ /* Used in the navbar and launchItem */
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.35)!important
 }

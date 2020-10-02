@@ -6,13 +6,13 @@ const initialStore = {
     upcomingLaunches: [],
   },
   navbarView : {
-    currentLocation : "",
+    currentLocation : "", // Done to highlight current location in navbar
   }
 };
 
 const upcomingReducer = function (state = initialStore.upcomingView, action) {
   switch (action.type) {
-    case actionNames.addUpcomingLaunches:
+    case actionNames.addUpcomingLaunches: // Add fetched launches to the store
       return {...state, 
         upcomingLaunches : [ ...action.upcomingLaunches
         ]
@@ -24,7 +24,7 @@ const upcomingReducer = function (state = initialStore.upcomingView, action) {
   };
 };
 
-const navbarReducer = function (state= initialStore.navbarView, action) {
+const navbarReducer = function (state=initialStore.navbarView, action) {
   switch (action.type){
     case actionNames.changeActiveAnchor:
       return {...state, currentLocation: action.newLocation};

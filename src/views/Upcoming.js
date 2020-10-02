@@ -1,60 +1,76 @@
 import React from "react";
-import { Container,  CardColumns, } from "react-bootstrap";
+import { Container, CardColumns, } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import LaunchItem from "./components/LaunchItem";
 import LaunchTimer from "./components/LaunchTimer";
-import { fetchUpcomingFromApi, deleteCollection, changeActiveAnchor } from "../store/actions";
-
-
+import {
+  fetchUpcomingFromApi,
+  deleteCollection,
+  changeActiveAnchor
+} from "../store/actions";
 
 class Upcoming extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      transformY : 0,
+      transformHeaderY: 0, // This makes the header move along the scrolling
     }
   }
+
   componentDidMount = () => {
-    this.props.dispatch(changeActiveAnchor("/upcoming"));
-    this.updateLaunches();
-    window.addEventListener("scroll", this.handleScroll);
-    
-    this.updateUpcomingInterval = setInterval(this.updateLaunches, 60000);
+    this.props.dispatch(changeActiveAnchor("/upcoming")); // This is to style the current anchor
+    this.updateUpcomingLaunches(); // Track upcoming launches from api
+    window.addEventListener("scroll", this.handleScroll);  // Add a handler to the event scroll
   }
-  updateLaunches = () => {
+
+  updateUpcomingLaunches = () => { // Track upcoming launches from api with saga
     this.props.dispatch(fetchUpcomingFromApi());
   }
+
   componentWillUnmount = () => {
-    this.props.dispatch(deleteCollection());
-    clearInterval(this.updateUpcomingInterval);
-    window.removeEventListener("scroll", this.handleScroll);
-    this.props.dispatch(changeActiveAnchor("/"));
+    this.props.dispatch(deleteCollection()); // Just delete collection when users changes the page
+
+    window.removeEventListener("scroll", this.handleScroll); // Remove the event listener used to move the header
+
+    this.props.dispatch(changeActiveAnchor("/")); // Just remove the 
   }
   handleScroll = (event) => {
-    let transformY = (window.scrollY/2.2).toFixed(4);
-    this.setState({transformY});
+    let transformHeaderY = (window.scrollY / 2.2).toFixed(4);
+    this.setState({ transformHeaderY }); // This is done so the render method is executed every time the user scrolls, and it doesn't affect the overall performance of the app
   }
   render = () => {
     const upcomingLaunches = this.props.upcomingLaunches;
-    const paddingBottom = (upcomingLaunches.length > 1 && upcomingLaunches[0].datePresicion === "hour") ? " pb-bigger": " pb-big";
-    const transformY = this.state.transformY;
+
+    console.log("rendering"); 
+
+    const transformHeaderY = this.state.transformHeaderY;
+
     return (
       <div className="upcoming-view">
-        <Container className={"upcoming-header" + paddingBottom }
+        <Container className="upcoming-header pb-big"
           style={{
-            transform : `translate3d(0px, ${transformY}px, 0px)`,
+            transform: `translate3d(0px, ${transformHeaderY}px, 0px)`,
           }}
-        fluid>
+          fluid>
           <h1 className="text-center">Upcoming SpaceX Launches</h1>
-          {upcomingLaunches.length > 0 ? <LaunchTimer/> : ""}
+          {
+            upcomingLaunches.length > 0 ?
+              <LaunchTimer /> : null
+            // if the launches are already fetched, display the LaunchTimer
+          }
         </Container>
-        <Container className=" my-4 upcoming-container" fluid="sm">
 
+        <Container className=" my-4 upcoming-container" fluid="sm">
           <CardColumns>
-            {upcomingLaunches.map((value, index) => {
-              return <LaunchItem launch={value} index={index} key={value.id} />
-            })}
+            {upcomingLaunches.map(
+              (value, index) => {
+                return <LaunchItem
+                  launch={value}
+                  index={index}
+                  key={value.id} />
+              }
+            )}
           </CardColumns>
         </Container>
       </div>

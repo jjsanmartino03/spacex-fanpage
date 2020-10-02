@@ -1,33 +1,34 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import brandLogo from "../resources/rocket-logo4.png";
 import {connect} from "react-redux";
 
-class MyNavbar extends React.Component {
+import brandLogo from "../resources/rocket-logo4.png";
+
+class MyNavbar extends React.Component { // Navigation bar present in every view
   constructor(props) {
     super(props);
-    this.state = {shadow:false}
-    this.links = [
+    this.state = {shadow:false};
+    this.links = [ // A list of every link to display in the Navbar
         { path: "/upcoming", text: "Upcoming Launches" },
       ];
   }
-  componentDidMount = () => {
+  componentDidMount = () => { // Add scroll listener to show shadow 
     window.addEventListener('scroll', this.handleScroll);
   }
-  componentWillUnmount = () => {
+  componentWillUnmount = () => { // Remove the listener once the component is unmounted
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll = (event) =>{
-    if (window.scrollY === 0){
+    if (window.scrollY === 0){ // The user is at the top of the page
       this.setState({shadow:false});
     }
-    else if(!this.state.shadow) {
+    else if(!this.state.shadow) { // The user is not at the top and shadow is already being displayed
       this.setState({shadow:true});
     }
   }
   render() {
-    let currentLocation = this.props.currentLocation;
+    let currentLocation = this.props.currentLocation; // The location tells what link should be displayed as active
     return (
       <Navbar
         collapseOnSelect={true}
@@ -64,7 +65,7 @@ class MyNavbar extends React.Component {
 }
 
 const mapStateToProps = ({navbarView}) =>{
-    return {...navbarView};
+    return {...navbarView}; // Necessary info to highlight current location
 }
 
 export default connect(mapStateToProps)(MyNavbar);
