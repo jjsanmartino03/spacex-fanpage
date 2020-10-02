@@ -44,34 +44,34 @@ class Upcoming extends React.Component {
     const upcomingLaunches = this.props.upcomingLaunches;
 
     console.log("rendering"); // TODO: solve why Upcoming renders a lot of times (I think it's on the method handlescroll)
-    console.log(upcomingLaunches[0])
 
-    let paddingBottom =
-      (
-        upcomingLaunches.length > 1 // without this, if this is false, the following condition would throw an error
-        &&
-        upcomingLaunches[0].datePrecision === "hour"
-      ) ? "pb-bigger": "pb-big"; // When the date precision is not hour, it looks better with less padding than when it has a data precision of hour
-    paddingBottom = "pb-big"
-    console.log(paddingBottom);
     const transformHeaderY = this.state.transformHeaderY;
 
     return (
       <div className="upcoming-view">
-        <Container className={"upcoming-header " + paddingBottom}
+        <Container className="upcoming-header pb-big"
           style={{
             transform: `translate3d(0px, ${transformHeaderY}px, 0px)`,
           }}
           fluid>
           <h1 className="text-center">Upcoming SpaceX Launches</h1>
-          {upcomingLaunches.length > 0 ? <LaunchTimer /> : ""}
+          {
+            upcomingLaunches.length > 0 ?
+              <LaunchTimer /> : null
+            // if the launches are already fetched, display the LaunchTimer
+          }
         </Container>
-        <Container className=" my-4 upcoming-container" fluid="sm">
 
+        <Container className=" my-4 upcoming-container" fluid="sm">
           <CardColumns>
-            {upcomingLaunches.map((value, index) => {
-              return <LaunchItem launch={value} index={index} key={value.id} />
-            })}
+            {upcomingLaunches.map(
+              (value, index) => {
+                return <LaunchItem
+                  launch={value}
+                  index={index}
+                  key={value.id} />
+              }
+            )}
           </CardColumns>
         </Container>
       </div>

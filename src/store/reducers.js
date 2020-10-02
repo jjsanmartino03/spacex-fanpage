@@ -13,13 +13,13 @@ const initialStore = {
 const upcomingReducer = function (state = initialStore.upcomingView, action) {
   switch (action.type) {
     case actionNames.addUpcomingLaunches:
-      const testLaunch = new Launch({
+      const testLaunch = new Launch({ // Test case for development
           name: "Test Launch III",
           details: null,
           id : "ee4fdc88y2c",
-          launchDate: new Date("Fri Oct 02 2020 17:22:59 GMT-0300 (Argentina Standard Time)"),
+          launchDate: new Date("Fri Oct 02 2020 20:00:59 GMT-0300 (Argentina Standard Time)"),
           stringDate: "Aug 2020",
-          date_precision: "month",
+          date_precision: "hour",
       })
       return {...state, 
         upcomingLaunches : [ testLaunch,...action.upcomingLaunches

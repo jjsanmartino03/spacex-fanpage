@@ -6,19 +6,23 @@ export const actionNames = {
 };
 
 export const addUpcomingLaunches = (upcomingLaunches) => ({
+  // Add fetched launches locally
   type: actionNames.addUpcomingLaunches,
   upcomingLaunches,
 })
 
 export const fetchUpcomingFromApi = () => ({
+  // this action is taken by sagas
   type: actionNames.fetchUpcomingLaunches,
 })
 
 export const deleteCollection = () => ({
+  // Delete the collection when needed
   type: actionNames.deleteCollection,
 });
 
 export const changeActiveAnchor = (newLocation) => ({
+  // change the anchor that has to be styled as current
   type:actionNames.changeActiveAnchor,
   newLocation,
 })
