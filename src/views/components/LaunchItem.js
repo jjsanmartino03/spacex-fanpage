@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-
 function LaunchItem(props) {
   return (
     <Card bg="light" className="shadow-big border-secondary" text="dark" >

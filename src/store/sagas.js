@@ -49,7 +49,7 @@ async function fetchUpcomingLaunches() {
         id,
         launchDate,
         stringDate: formatDateBasedOnPrecision(launchDate, value.date_precision), // Style the date string based on the precision of the date
-        date_precision, // TODO: see if this is necessary here
+        date_precision,
       })
     }
   );

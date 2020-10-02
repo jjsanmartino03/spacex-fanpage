@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { actionNames } from "./actions";
-import Launch from "../entities/Launch";
+
 const initialStore = {
   upcomingView: {
     upcomingLaunches: [],
@@ -12,17 +12,9 @@ const initialStore = {
 
 const upcomingReducer = function (state = initialStore.upcomingView, action) {
   switch (action.type) {
-    case actionNames.addUpcomingLaunches:
-      const testLaunch = new Launch({ // Test case for development
-          name: "Test Launch III",
-          details: null,
-          id : "ee4fdc88y2c",
-          launchDate: new Date("Fri Oct 02 2020 20:00:59 GMT-0300 (Argentina Standard Time)"),
-          stringDate: "Aug 2020",
-          date_precision: "hour",
-      })
+    case actionNames.addUpcomingLaunches: // Add fetched launches to the store
       return {...state, 
-        upcomingLaunches : [ testLaunch,...action.upcomingLaunches
+        upcomingLaunches : [ ...action.upcomingLaunches
         ]
       };
     case actionNames.deleteCollection:
@@ -32,7 +24,7 @@ const upcomingReducer = function (state = initialStore.upcomingView, action) {
   };
 };
 
-const navbarReducer = function (state= initialStore.navbarView, action) {
+const navbarReducer = function (state=initialStore.navbarView, action) {
   switch (action.type){
     case actionNames.changeActiveAnchor:
       return {...state, currentLocation: action.newLocation};

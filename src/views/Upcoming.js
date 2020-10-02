@@ -37,13 +37,12 @@ class Upcoming extends React.Component {
   }
   handleScroll = (event) => {
     let transformHeaderY = (window.scrollY / 2.2).toFixed(4);
-    this.setState({ transformHeaderY }); // This is done so the render method is executed every time the user scrolls 
-    // TODO see if it is fixeable
+    this.setState({ transformHeaderY }); // This is done so the render method is executed every time the user scrolls, and it doesn't affect the overall performance of the app
   }
   render = () => {
     const upcomingLaunches = this.props.upcomingLaunches;
 
-    console.log("rendering"); // TODO: solve why Upcoming renders a lot of times (I think it's on the method handlescroll)
+    console.log("rendering"); 
 
     const transformHeaderY = this.state.transformHeaderY;
 

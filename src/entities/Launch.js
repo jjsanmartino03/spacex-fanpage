@@ -10,9 +10,8 @@ class Launch { // The Launch entity, base of this application
     this._name = name;
     this._details = details;
     this._id = id;
-    this._stringDate = stringDate; // The date to be displayed, based on the date precision of the launch
-    this._date = launchDate; // The actual date as a Date object
-    // TODO see if it is necessary to have stringDate and date and look for other ways to do the same task
+    this._stringDate = stringDate;
+    this._date = launchDate;
     this._datePrecision = date_precision;
   }
 
