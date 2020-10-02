@@ -22,7 +22,7 @@ class Upcoming extends React.Component {
     this.updateUpcomingLaunches(); // Track upcoming launches from api
     window.addEventListener("scroll", this.handleScroll);  // Add a handler to the event scroll
   }
-  updateUpcomingLaunches = () => { // Track upcoming launches from api
+  updateUpcomingLaunches = () => { // Track upcoming launches from api with saga
     this.props.dispatch(fetchUpcomingFromApi());
   }
   componentWillUnmount = () => {
@@ -38,11 +38,7 @@ class Upcoming extends React.Component {
   render = () => {
     const upcomingLaunches = this.props.upcomingLaunches;
 
-    if (upcomingLaunches[0]) {
-      console.log(setTimeout(()=> console.log("hols"), upcomingLaunches[0].date - new Date())); // This is done to update the countdown when it reaches 0
-    }
-
-    console.log("rendering");
+    console.log("rendering"); // TODO: solve why Upcomings render a lot of times
     console.log(upcomingLaunches[0])
     const paddingBottom = (upcomingLaunches.length > 1 && upcomingLaunches[0].datePrecision === "hour") ? " pb-bigger" : " pb-big";
     const transformHeaderY = this.state.transformHeaderY;
