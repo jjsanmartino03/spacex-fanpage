@@ -18,8 +18,8 @@ const upcomingReducer = function (state = initialStore.upcomingView, action) {
           details: null,
           id : "ee4fdc88y2c",
           launchDate: new Date("Fri Oct 02 2020 17:22:59 GMT-0300 (Argentina Standard Time)"),
-          stringDate: "aug 2020",
-          date_precision: "hour",
+          stringDate: "Aug 2020",
+          date_precision: "month",
       })
       return {...state, 
         upcomingLaunches : [ testLaunch,...action.upcomingLaunches
