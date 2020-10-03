@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import Navbar from "./views/Navbar";
 import Upcoming from "./views/Upcoming";
 import Footer from "./views/Footer";
+import Home from "./views/Home";
 import store from "./store/index";
 
 function App(props) {
@@ -13,6 +14,9 @@ function App(props) {
       <Router>
         <Route path="">
           <Navbar />
+        </Route>
+        <Route path="/" exact>
+          <Home />
         </Route>
         <Route path="/upcoming" exact>
           <Upcoming />

@@ -1,17 +1,18 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import brandLogo from "../resources/rocket-logo4.png";
 
 class MyNavbar extends React.Component { // Navigation bar present in every view
   constructor(props) {
     super(props);
-    this.state = {shadow:false};
+    this.state = { shadow: false };
     this.links = [ // A list of every link to display in the Navbar
-        { path: "/upcoming", text: "Upcoming Launches" },
-      ];
+      { path: "/upcoming", text: "Upcoming Launches" },
+      { path: "/", text: "Home" }
+    ];
   }
   componentDidMount = () => { // Add scroll listener to show shadow 
     window.addEventListener('scroll', this.handleScroll);
@@ -19,12 +20,12 @@ class MyNavbar extends React.Component { // Navigation bar present in every view
   componentWillUnmount = () => { // Remove the listener once the component is unmounted
     window.removeEventListener('scroll', this.handleScroll);
   }
-  handleScroll = (event) =>{
-    if (window.scrollY === 0){ // The user is at the top of the page
-      this.setState({shadow:false});
+  handleScroll = (event) => {
+    if (window.scrollY === 0) { // The user is at the top of the page
+      this.setState({ shadow: false });
     }
-    else if(!this.state.shadow) { // The user is not at the top and shadow is already being displayed
-      this.setState({shadow:true});
+    else if (!this.state.shadow) { // The user is not at the top and shadow is already being displayed
+      this.setState({ shadow: true });
     }
   }
   render() {
@@ -33,7 +34,7 @@ class MyNavbar extends React.Component { // Navigation bar present in every view
       <Navbar
         collapseOnSelect={true}
         expand="md"
-        className={`${this.state.shadow? "shadow-big": ""} border-bottom justify-content-md-around`}
+        className={`${this.state.shadow ? "shadow-big" : ""} border-bottom justify-content-md-around`}
         sticky="top"
         bg="light"
       >
@@ -64,8 +65,8 @@ class MyNavbar extends React.Component { // Navigation bar present in every view
   }
 }
 
-const mapStateToProps = ({navbarView}) =>{
-    return {...navbarView}; // Necessary info to highlight current location
+const mapStateToProps = ({ navbarView }) => {
+  return { ...navbarView }; // Necessary info to highlight current location
 }
 
 export default connect(mapStateToProps)(MyNavbar);

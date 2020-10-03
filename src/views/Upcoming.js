@@ -32,8 +32,6 @@ class Upcoming extends React.Component {
     this.props.dispatch(deleteCollection()); // Just delete collection when users changes the page
 
     window.removeEventListener("scroll", this.handleScroll); // Remove the event listener used to move the header
-
-    this.props.dispatch(changeActiveAnchor("/")); // Just remove the 
   }
   handleScroll = (event) => {
     let transformHeaderY = (window.scrollY / 2.2).toFixed(4);

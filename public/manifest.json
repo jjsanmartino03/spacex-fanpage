@@ -1,11 +1,12 @@
 {
   "short_name": "SpaceX",
   "name": "Create React App Sample",
+  "homepate": "/",
   "icons": [
     {
-      "src":"rocket-icon.png",
-      "sizes":"192x192",
-      "type":"image/png"
+      "src": "rocket-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "favicon.ico",
