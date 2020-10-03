@@ -1,7 +1,7 @@
 .home-header {
   background-image: url("../resources/spacex.jpg");
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   padding-top: 5rem;
   color: white;
