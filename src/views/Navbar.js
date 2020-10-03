@@ -10,8 +10,8 @@ class MyNavbar extends React.Component { // Navigation bar present in every view
     super(props);
     this.state = { shadow: false };
     this.links = [ // A list of every link to display in the Navbar
+      { path: "/", text: "Home" },
       { path: "/upcoming", text: "Upcoming Launches" },
-      { path: "/", text: "Home" }
     ];
   }
   componentDidMount = () => { // Add scroll listener to show shadow 
@@ -38,7 +38,7 @@ class MyNavbar extends React.Component { // Navigation bar present in every view
         sticky="top"
         bg="light"
       >
-        <Navbar.Brand>
+        <Navbar.Brand as={Link} to="">
           <img src={brandLogo} alt="brand logo" height="40" width="40" /> SpaceX Fanpage
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-nav-navbar" />

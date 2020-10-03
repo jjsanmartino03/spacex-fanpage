@@ -3,7 +3,7 @@
 }
 .navbar{
     background-color: var(--color-navbar)!important;
-    z-index: 1000!important;
+    z-index: 999!important;
 
 }
 .nav-link:hover{
