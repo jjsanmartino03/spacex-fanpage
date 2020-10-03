@@ -1,0 +1,18 @@
+.home-header {
+  background-image: url("../resources/spacex.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-top: 7rem;
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1)!important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width:500px) {
+  .home-header .w-75 {
+    width: 95%!important;
+  }
+}

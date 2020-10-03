@@ -1,6 +1,7 @@
 @import "./navbar.css";
 @import "./upcoming.css";
 @import "./footer.css";
+@import "./home.css";
 
 html{
   scroll-behavior: smooth; /* I do not know whether this works, but I use it */
