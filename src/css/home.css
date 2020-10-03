@@ -10,9 +10,24 @@
   flex-direction: column;
   align-items: center;
 }
+.home-view{
+  display: flex;
+  flex-direction: column;
+}
+.home-header h1{
+  font-size: 4rem;
+}
+.home-content{
+  margin-top: -4rem;
+  z-index: 3;
+  font-size: 1.2em;
+}
 
 @media (max-width:500px) {
   .home-header .w-75 {
     width: 95%!important;
+  }
+  .w-90-sm{
+    width: 85%!important;
   }
 }
