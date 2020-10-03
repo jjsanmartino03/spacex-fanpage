@@ -1,0 +1,37 @@
+.home-header {
+  background-image: url("../resources/spacex.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-top: 5rem;
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1)!important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-view{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1em;
+}
+.home-header h1{
+  font-size: 4rem;
+}
+.home-content{
+  margin-top: -4rem;
+  z-index: 3;
+  font-size: 1.2em;
+}
+.w-90-sm{
+  width: 80%;
+}
+
+@media (max-width:550px) {
+  .home-header .w-75 {
+    width: 95%!important;
+  }
+  .w-90-sm{
+    width: 85%!important;
+  }
+}
