@@ -24,7 +24,7 @@
   font-size: 1.2em;
 }
 .w-90-sm{
-  width: 80%;
+  width: 85%;
 }
 
 @media (max-width:550px) {
@@ -32,6 +32,6 @@
     width: 95%!important;
   }
   .w-90-sm{
-    width: 85%!important;
+    width: 95%!important;
   }
 }
