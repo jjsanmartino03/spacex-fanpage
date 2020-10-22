@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, CardColumns, } from "react-bootstrap";
+import { Container, Row, } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import LaunchItem from "./components/LaunchItem";
@@ -40,8 +40,6 @@ class Upcoming extends React.Component {
   render = () => {
     const upcomingLaunches = this.props.upcomingLaunches;
 
-    console.log("rendering"); 
-
     const transformHeaderY = this.state.transformHeaderY;
 
     return (
@@ -59,8 +57,8 @@ class Upcoming extends React.Component {
           }
         </Container>
 
-        <Container className=" my-4 upcoming-container" fluid="sm">
-          <CardColumns>
+        <Container className=" mt-4 upcoming-container" fluid="sm">
+          <Row className="mb-3" xs={1} md={2} lg={3}>
             {upcomingLaunches.map(
               (value, index) => {
                 return <LaunchItem
@@ -69,7 +67,7 @@ class Upcoming extends React.Component {
                   key={value.id} />
               }
             )}
-          </CardColumns>
+          </Row>
         </Container>
       </div>
     )
