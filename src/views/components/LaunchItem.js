@@ -1,9 +1,10 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 
 function LaunchItem(props) {
   return (
-    <Card bg="light" className="shadow-big border-secondary" text="dark" >
+    <Col className="mb-3 px-2">
+    <Card bg="light" className=" shadow-big border-secondary" text="dark" >
       <Card.Body>
         <Card.Title as="h2" className="bg">{props.index + 1}. {props.launch.name}</Card.Title>
         <Card.Text>
@@ -14,6 +15,7 @@ function LaunchItem(props) {
       </Card.Body>
       <Card.Footer>{props.launch.stringDate}</Card.Footer>
     </Card>
+    </Col>
   );
 }
 

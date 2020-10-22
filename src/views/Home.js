@@ -35,11 +35,11 @@ class HomeView extends React.Component {
         </Container>
         <Container className="bg-white shadow-big rounded home-content py-4 mb-4 px-4 px-md-5 w-90-sm">
           <h2>The project</h2>
-          <p>SpaceX Fanpage is a website that has some info about Space Exploration Technologies Inc (SpaceX), like upcoming launches. Up to now, October 2020, I've only made the Upcoming Launches page. The project itself has no backend, and it gets all the data from <a target="_blank" href="https://github.com/r-spacex/SpaceX-API">r-spacex/SpaceX-API</a>.</p>
+          <p>SpaceX Fanpage is a website that has some info about Space Exploration Technologies Inc (SpaceX), like upcoming launches. Up to now, October 2020, I've only made the Upcoming Launches page. The project itself has no backend, and it gets all the data from <a rel="noopener noreferrer" target="_blank" href="https://github.com/r-spacex/SpaceX-API">r-spacex/SpaceX-API</a>.</p>
 
           <p>This is a practice project where I put in practice React, React-Bootstrap, React-Redux, Redux-Saga, tools I recently learned to use.</p>
 
-          <p>You can find the code of the project <a href="https://github.com/jjsanmartino03/spacex-fanpage" target="_blank">here in github</a>. If you find an error, or you want to made any correction or enhancement, you can open an issue or maybe open a pull request to the repository, I'd be happy to help!</p>
+          <p>You can find the code of the project <a href="https://github.com/jjsanmartino03/spacex-fanpage" rel="noopener noreferrer" target="_blank">here in github</a>. If you find an error, or you want to made any correction or enhancement, you can open an issue or maybe open a pull request to the repository, I'd be happy to help!</p>
           <h2>Sections</h2>
           <div className="sections-item pt-3 d-flex flex-column align-items-center">
             <h3 className=""><Link to="upcoming" className="">Upcoming Launches</Link></h3>
@@ -51,8 +51,8 @@ class HomeView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ }) => ({
-
+const mapStateToProps = ({ dispatch}) => ({
+  dispatch
 });
 
 export default connect(mapStateToProps)(HomeView);
