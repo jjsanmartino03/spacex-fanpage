@@ -39,8 +39,6 @@ async function fetchUpcomingLaunches() {
   response = response.filter(
     // Filter those launches already launched
     (value) => {
-      console.log(new Date(value.date_utc) < new Date() &&
-      value.date_precision === "hour")
       if (
         new Date(value.date_utc) < new Date() &&
         value.date_precision === "hour" // For instance, if a launch has date_precision = "month" and the date is October 1st 00:00, it will not be deleted on October 4th
@@ -49,7 +47,6 @@ async function fetchUpcomingLaunches() {
       else return true;
     }
   );
-  console.log(response)
 
   let launchObjects = response.map(
     // build an array of Launch objects
