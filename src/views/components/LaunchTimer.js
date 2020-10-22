@@ -10,6 +10,7 @@ class LaunchTimer extends React.Component {
     ); // Calculate how many seconds before next launch
     this.state = {
       distance: distanceInSeconds, // Save the seconds
+      display: true,
     };
   }
 
@@ -26,10 +27,16 @@ class LaunchTimer extends React.Component {
       return;
     }
     this.updateUpcomingTimeout = setTimeout(
-      this.props.dispatch(fetchUpcomingFromApi()),
-      this.state.distance * 1000 + 2000
+      this.fetchAnotherTime,
+      this.state.distance * 1000 + 1000
     );
   };
+  fetchAnotherTime = async () =>{
+    this.setState({display:false})
+    await new Promise(r => setTimeout(r, 5000));
+    this.props.dispatch(fetchUpcomingFromApi());
+    this.setState({display:true})
+  }
 
   updateTimeInterval = () => {
     // update the timer, in case the user wasn't using the app for some time
@@ -74,7 +81,7 @@ class LaunchTimer extends React.Component {
           takes off in:
         </h3>
         <div className="timers">
-          {datePrecision === "hour" ? (
+          { this.state.display ? (datePrecision === "hour" ? (
             <div className="d-flex justify-content-around mt-2 mb-0 w-75">
               <div>
                 <span className="timer-number">{days}</span>
@@ -98,7 +105,10 @@ class LaunchTimer extends React.Component {
             <div className="string-date-container my-0 py-0 pt-5">
               <h2 className="py-0 my-0 highlight">{stringDate}</h2>
             </div>
-          )}
+          )) :
+          (<div className="string-date-container my-0 py-0 pt-5">
+              <h2 className="py-0 my-0 highlight">And... Liftoff!!</h2>
+            </div>)}
         </div>
       </div>
     );
