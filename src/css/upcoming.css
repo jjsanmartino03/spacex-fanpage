@@ -8,6 +8,15 @@
 .pb-bigger{
   padding-bottom: 10rem!important;
 }
+
+.loader{
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .upcoming-header {
   background-image: url("../resources/spacex-hor.jpg");
   background-repeat: no-repeat;

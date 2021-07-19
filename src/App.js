@@ -17,11 +17,10 @@ function App(props) {
         </Route>
         <Route path="/" exact>
           <Home />
+          <Footer />
         </Route>
         <Route path="/upcoming" exact>
           <Upcoming />
-        </Route>
-        <Route path="">
           <Footer />
         </Route>
       </Router>
