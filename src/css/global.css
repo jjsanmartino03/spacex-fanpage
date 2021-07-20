@@ -13,6 +13,10 @@ body{
   
 }
 
+#root{
+  min-height: 100vh;
+}
+
 .text-white{
   color: #ffffff;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Navbar from "./views/Navbar";
@@ -15,16 +15,21 @@ function App(props) {
         <Route path="">
           <Navbar />
         </Route>
-        <Route path="/" exact>
-          <Home />
-          <Footer />
-        </Route>
-        <Route path="/upcoming" exact>
-          <Upcoming />
-          <Footer />
-        </Route>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+            <Footer />
+          </Route>
+          <Route path="/upcoming" exact>
+            <Upcoming />
+            <Footer />
+          </Route>
+          <Route path="/">
+            <Redirect to="/upcoming" />
+          </Route>
+        </Switch>
       </Router>
     </Provider>
   );
-};
+}
 export default App;
